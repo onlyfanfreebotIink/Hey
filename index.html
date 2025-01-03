@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Popup Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+        #ad-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 2px solid #ccc;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+        }
+        #ad-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #0056b3;
+        }
+        .note {
+            font-size: 14px;
+            color: red;
+        }
+        .special-button {
+            background: linear-gradient(90deg, #ff7f50, #ff4500);
+            color: white;
+            font-weight: bold;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 5px #ff4500;
+            }
+            50% {
+                box-shadow: 0 0 20px #ff4500;
+            }
+            100% {
+                box-shadow: 0 0 5px #ff4500;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="ad-overlay"></div>
+    <div id="ad-popup">
+        <p>Vui lòng xem quảng cáo trước khi tiếp tục.</p>
+        <button id="ok-button" class="button">OK</button>
+        <button id="exit-button" class="button" style="display: none;">Thoát</button>
+    </div>
+
+    <h1>Welcome to the Web</h1>
+    <p>Đây là nội dung chính của trang web.</p>
+
+    <div>
+        <a href="https://s.net.vn/telegram-hotclip18-video-key-171h9G" target="_blank" class="button special-button" onclick="return verifyLink(event)">Link 1 - Xem Ngay</a>
+        <p class="note">18+ | Yêu cầu có Telegram</p>
+
+        <a href="https://s.net.vn/telegram-hotclip18" target="_blank" class="button special-button" onclick="return verifyLink(event)">Link 2 - Xem Ngay</a>
+        <p class="note">18+ | Yêu cầu có Telegram</p>
+
+        <a href="https://s.net.vn/porn-rule34-more-viewkey-91hj91kl" target="_blank" class="button special-button" onclick="return verifyLink(event)">Link 3 - Xem Ngay</a>
+        <p class="note">18+ | Yêu cầu có Telegram</p>
+    </div>
+
+    <form>
+        <div class="input-group">
+            <label class="checkbox">
+                <input class="checkbox__input" type="checkbox" name="dummy1" />
+                <span class="checkbox__label">Apples</span>
+            </label>
+            <label class="checkbox">
+                <input class="checkbox__input" type="checkbox" name="dummy1" />
+                <span class="checkbox__label">Cherries</span>
+            </label>
+            <label class="checkbox">
+                <input class="checkbox__input" type="checkbox" name="dummy1" />
+                <span class="checkbox__label">Oranges</span>
+            </label>
+        </div>
+        <div class="input-group">
+            <label class="radio">
+                <input class="radio__input" type="radio" name="dummy2" />
+                <span class="radio__label">Linux</span>
+            </label>
+            <label class="radio">
+                <input class="radio__input" type="radio" name="dummy2" />
+                <span class="radio__label">macOS</span>
+            </label>
+            <label class="radio">
+                <input class="radio__input" type="radio" name="dummy2" />
+                <span class="radio__label">Windows</span>
+            </label>
+        </div>
+    </form>
+
+    <script>
+        const adPopup = document.getElementById('ad-popup');
+        const adOverlay = document.getElementById('ad-overlay');
+        const okButton = document.getElementById('ok-button');
+        const exitButton = document.getElementById('exit-button');
+
+        function showAd() {
+            adPopup.style.display = 'block';
+            adOverlay.style.display = 'block';
+            setTimeout(() => {
+                exitButton.style.display = 'inline-block';
+            }, 30000); // 30 seconds
+        }
+
+        function hideAd() {
+            adPopup.style.display = 'none';
+            adOverlay.style.display = 'none';
+        }
+
+        okButton.addEventListener('click', () => {
+            // Chỗ này để bạn gắn code quảng cáo
+            alert('Quảng cáo sẽ hiển thị tại đây.');
+        });
+
+        exitButton.addEventListener('click', () => {
+            window.location.href = 'https://your-ad-redirect-link.com'; // Thay bằng link bạn muốn chuyển hướng
+        });
+
+        function verifyLink(event) {
+            const validLinks = [
+                "https://s.net.vn/telegram-hotclip18-video-key-171h9G",
+                "https://s.net.vn/telegram-hotclip18",
+                "https://s.net.vn/porn-rule34-more-viewkey-91hj91kl"
+            ];
+            if (!validLinks.includes(event.target.href)) {
+                event.preventDefault();
+                alert("Liên kết không hợp lệ hoặc không được phép.");
+                return false;
+            }
+            return true;
+        }
+
+        // Hiện quảng cáo khi vào trang
+        showAd();
+    </script>
+</body>
+</html>
